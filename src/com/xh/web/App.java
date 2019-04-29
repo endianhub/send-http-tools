@@ -22,6 +22,9 @@ public class App {
 		http.addParameter("Age", 12);
 		http.addParameter("Sex", "男");
 		http.addParameter("Date", new Date());
+		http.addParameter("A", "");
+		http.addParameter("B", "");
+		http.addParameter("C", "");
 
 		System.out.println(HttpTools.getParams());
 

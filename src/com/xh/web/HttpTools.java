@@ -345,19 +345,23 @@ public class HttpTools {
 	}
 
 	public static String getParams() {
-		String paramStr = "";
-		Iterator entries = paramsMap.entrySet().iterator();
+		StringBuffer sb = new StringBuffer();
 		Map.Entry entry = null;
-		int i = 0;
+		Iterator entries = paramsMap.entrySet().iterator();
 		while (entries.hasNext()) {
 			entry = (Entry) entries.next();
-			if (i == 0) {
-				paramStr += entry.getKey() + "=" + entry.getValue();
-			} else {
-				paramStr += "&" + entry.getKey() + "=" + entry.getValue();
+			if (entry != null && !"".equals(nullToEmpty(entry.getKey()))) {
+				sb.append(entry.getKey() + "=" + entry.getValue() + "&");
 			}
-			i++;
 		}
-		return paramStr;
+		sb.deleteCharAt(sb.length() - 1);
+		return sb.toString();
+	}
+
+	public static String nullToEmpty(Object obj) {
+		if (obj != null) {
+			return obj.toString();
+		}
+		return "";
 	}
 }
