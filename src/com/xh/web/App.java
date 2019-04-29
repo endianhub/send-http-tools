@@ -17,13 +17,13 @@ public class App {
 
 		String url = "";
 
-		HttpUtils http = new HttpUtils();
+		HttpTools http = new HttpTools();
 		http.addParameter("Name", "ABC");
 		http.addParameter("Age", 12);
 		http.addParameter("Sex", "男");
 		http.addParameter("Date", new Date());
 
-		System.out.println(HttpUtils.getParams());
+		System.out.println(HttpTools.getParams());
 
 		// HttpUtils.doPost(url, HttpUtils.TEXT_XML);
 	}

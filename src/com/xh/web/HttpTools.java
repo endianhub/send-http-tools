@@ -36,7 +36,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
  * @email xhaimail@163.com
  * @date 2019/04/18
  */
-public class HttpUtils {
+public class HttpTools {
 
 	public static final String METHOD_POST = "POST";
 	public static final String METHOD_GET = "GET";
