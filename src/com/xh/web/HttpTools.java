@@ -53,7 +53,7 @@ public class HttpTools {
 																							// 的方式进行编码，key和val都进行了URL转码
 	public static final String MULTIPART_FORM_DATA = "multipart/form-data";// 需要在表单中进行文件上传时，就需要使用该格式
 
-	private static Map paramsMap = new HashMap();
+	private static Map<String, Object> paramsMap = new HashMap<String, Object>();
 
 	private static SSLContext ctx = null;
 	private static HostnameVerifier verifier = null;
@@ -70,7 +70,7 @@ public class HttpTools {
 	};
 
 	public void addParameter(String name, Object value) {
-		this.paramsMap.put(name, value);
+		HttpTools.paramsMap.put(name, value);
 	}
 
 	/***********************************************************************************************
@@ -346,10 +346,10 @@ public class HttpTools {
 
 	public static String getParams() {
 		StringBuffer sb = new StringBuffer();
-		Map.Entry entry = null;
-		Iterator entries = paramsMap.entrySet().iterator();
+		Map.Entry<String, Object> entry = null;
+		Iterator<Entry<String, Object>> entries = paramsMap.entrySet().iterator();
 		while (entries.hasNext()) {
-			entry = (Entry) entries.next();
+			entry = (Entry<String, Object>) entries.next();
 			if (entry != null && !"".equals(nullToEmpty(entry.getKey()))) {
 				sb.append(entry.getKey() + "=" + entry.getValue() + "&");
 			}

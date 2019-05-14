@@ -1,6 +1,7 @@
 package com.xh.web;
 
 import java.io.IOException;
+import java.net.Proxy;
 import java.util.Date;
 
 /**
@@ -25,10 +26,16 @@ public class App {
 		http.addParameter("A", "");
 		http.addParameter("B", "");
 		http.addParameter("C", "");
-
 		System.out.println(HttpTools.getParams());
 
-		// HttpUtils.doPost(url, HttpUtils.TEXT_XML);
+		HttpTools.doPost(url, HttpTools.getParams(), HttpTools.TEXT_HTML, new IProxy() {
+			@Override
+			public Proxy settingProxy() {
+
+				return null;
+			}
+		});
+
 	}
 
 }
